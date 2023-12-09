@@ -7,6 +7,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { AppContext } from "../../app/AppContext";
 import { UserManager } from "../../app/UserManager";
 import { APIError } from "@twit2/std-library-fe";
+import { NavSideBar } from "../../components/layout/NavSideBar";
 
 /**
  * Renders the main page.
@@ -16,6 +17,7 @@ export const MainPage = ()=> {
     const navigate = useNavigate();
     const [fetchBusy, setFetchBusy] = useState(false);
     const [user, setUser] = useState<PartialUser>();
+    const [tab, setTab] = useState("");
 
     // Fetch user profile
     useEffect(()=>{
@@ -44,12 +46,26 @@ export const MainPage = ()=> {
 
         fetchData();
     });
+
+    useEffect(()=>{
+        let name = window.location.pathname.split('/')[1];
+
+        if(name === "main")
+            name = "users";
+
+        setTab(name);
+    }, [tab]);
     
     return (user == null) ? <LoadingContainer/> : <>
         <div className="page main">
             <div className="main-layout">
                 <div className="left">
-                    TODO nav sidebar
+                    <NavSideBar selectedId={tab} onSelected={(id) => {
+                        switch(id) {
+                            case "users":
+                                navigate('/main');
+                        }
+                    }}/>
                 </div>
                 <div className="right">
                     <Outlet/>

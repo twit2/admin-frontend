@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import "./App.scss";
 import { MainPage } from './ui/main/MainPage';
-import { TestView } from './ui/main/sublayouts/TestView';
+import { UsersView } from './ui/main/sublayouts/UsersView';
 import { LoginPage } from './ui/etc/LoginPage';
 import "@twit2/std-library-fe/dist/global.css";
 import { APIConfiguration } from '@twit2/std-library-fe';
@@ -21,7 +21,7 @@ export default function App() {
             <Route index element={<LoginPage/>} />
           </Route>
           <Route element={<MainPage />} >
-            <Route path="/main" element={<TestView/>}/>
+            <Route path="/main" element={<UsersView/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

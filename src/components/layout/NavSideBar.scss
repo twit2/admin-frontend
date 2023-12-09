@@ -1,0 +1,54 @@
+@import "../../style/colors.scss";
+@import "../../style/icons.scss";
+
+.nav-sidebar {
+    >.title {
+        box-sizing: border-box;
+        padding: 1.5rem;
+        text-align: center;
+
+        >.text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        >.subtext {
+            color: gray;
+        }
+    }
+
+    >.items {
+        >.item {
+            cursor: pointer;
+            padding: 1em;
+            user-select: none;
+
+            >.label {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            >.icon {
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 10px;
+                height: 24px;
+                width: 24px;
+                @include iconslib();
+            }
+
+            &:hover {
+                background-color: $colorT5;
+            }
+
+            &:active {
+                background-color: $colorTertiary;
+            }
+
+            &.selected {
+                background-color: $colorPrimary;
+            }
+        }
+    }
+}

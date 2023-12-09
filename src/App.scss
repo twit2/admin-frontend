@@ -1,0 +1,10 @@
+// globally applicable styles
+@import "./style/colors.scss";
+@import "./style/fonts.scss";
+@import "./style/extern/normalize.scss";
+
+// Layout styles
+@import "./style/layout/page.scss";
+
+// Component styles
+@import "./style/components/Button.scss";

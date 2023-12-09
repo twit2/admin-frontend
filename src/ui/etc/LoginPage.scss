@@ -1,0 +1,42 @@
+@import "../../style/colors.scss";
+
+.page.login {
+    display: flex;
+
+    >.center {
+        margin: auto;
+        font-size: 14px;
+
+        >.hdr {
+            min-width: 300px;
+            max-width: 100%;
+            text-align: center;
+            margin-bottom: 2em;
+
+            >.logo {
+                background-image: url(../../assets/misc/logo.png);
+                background-position: center;
+                background-size: contain;
+                height: 128px;
+                width: 128px;
+                margin-bottom: 0.5rem;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            >.subtitle {
+                color: gray;
+                font-weight: bold;
+                font-size: 16px;
+                margin-bottom: 2em;
+            }
+
+            border-bottom: 1px solid $colorSecondary;
+        }
+
+        button {
+            margin-top: 1em;
+            width: 100%;
+        }
+    }
+}

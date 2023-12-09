@@ -1,6 +1,6 @@
 // Main Page
 import { useEffect, useState } from "react";
-import { LoadingContainer } from "../../components/basic/LoadingContainer";
+import { LoadingContainer } from "@twit2/std-library-fe";
 import "./MainPage.scss";
 import { PartialUser } from "@twit2/std-library-fe";
 import { Outlet, useNavigate } from "react-router-dom";

@@ -8,10 +8,10 @@
 .main-layout {
     height: 100%;
     margin: auto;
-    background-color: $colorT4;
     display: flex;
 
     >.left {
+        background-color: $colorT4;
         border-right: 1px solid $colorT5;
     }
 

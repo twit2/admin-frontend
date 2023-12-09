@@ -1,0 +1,14 @@
+@import "../../style/colors.scss";
+
+.actions-box {
+    line-height: 1.6;
+
+    >.action {
+        cursor: pointer;
+        color: $colorAccent;
+
+        &.danger {
+            color: #be0000;
+        }
+    }
+}

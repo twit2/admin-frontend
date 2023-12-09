@@ -1,16 +1,20 @@
-import { useState } from "react";
 import { PaneHeader } from "../../../components/layout/PaneHeader";
-import { LoadingContainer, PartialUser } from "@twit2/std-library-fe";
-import { Table } from "../../../components/layout/table/Table";
+import "./UsersView.scss";
+import { UsersList } from "../../../components/lists/UsersList";
+import { useState } from "react";
+import { PartialUser } from "@twit2/std-library-fe";
+import { UserPane } from "../../../components/users/UserPane";
 
 export const UsersView = ()=>{
-    let [users, setUsers] = useState<PartialUser[]>();
-    
-    return <div className="view feed">
-        <PaneHeader title="User Manager"/>
-        { (!users) ? <LoadingContainer/> : <Table headers={[
-            { name: "Username" },
-            { name: "Id" }
-        ]}/> } 
+    let [selectedUser, setSelectedUser] = useState<PartialUser>();
+
+    return <div className="view users">
+        <div className="user-content">
+            <PaneHeader title="User Manager"/>
+            <UsersList onselect={(user) => {
+                setSelectedUser(user);
+            }}/>
+        </div>
+        { (selectedUser) ? <UserPane user={selectedUser}/> : '' }
     </div>;
 }

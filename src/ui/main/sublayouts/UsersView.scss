@@ -1,0 +1,13 @@
+.view.users {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .user-content {
+        flex: 1;
+    }
+
+    .ui-table {
+        margin: 1em;
+    }
+}

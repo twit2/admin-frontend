@@ -64,6 +64,10 @@ export const MainPage = ()=> {
                         switch(id) {
                             case "users":
                                 navigate('/main');
+                                break;
+                            default:
+                                navigate(`/${id}`);
+                                break;
                         }
                     }}/>
                 </div>

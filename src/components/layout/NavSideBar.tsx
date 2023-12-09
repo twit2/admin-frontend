@@ -17,6 +17,11 @@ export const NavSideBar = (props: SidebarProps)=>{
             id: "users",
             label: "Users",
             icon: "group"
+        },
+        {
+            id: "posts",
+            label: "Posts",
+            icon: "reply"
         }
     ];
 

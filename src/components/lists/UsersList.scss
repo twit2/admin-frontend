@@ -1,0 +1,36 @@
+@import "../../style/mixins/ProfilePicture.scss";
+@import "../../style/colors.scss";
+
+.ui-user-list {
+    >.profile {
+        padding: 10px;
+        display: flex;
+        user-select: none;
+
+        >.avatar {
+            height: 36px;
+            width: 36px;
+            margin-right: 10px;
+            @include profile-picture(url(../../assets/icons/svg/user/profile.svg));
+        }
+
+        >.name {
+            flex: 1;
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        &:hover {
+            cursor: pointer;
+            background-color: $colorT5;
+        }
+
+        &:active {
+            background-color: $colorT4;
+        }
+
+        &.selected {
+            background-color: $colorPrimary;
+        }
+    }
+}

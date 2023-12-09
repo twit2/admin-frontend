@@ -8,6 +8,7 @@ import { UsersView } from './ui/main/sublayouts/UsersView';
 import { LoginPage } from './ui/etc/LoginPage';
 import "@twit2/std-library-fe/dist/global.css";
 import { APIConfiguration } from '@twit2/std-library-fe';
+import { PostsView } from './ui/main/sublayouts/PostsView';
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
@@ -22,6 +23,7 @@ export default function App() {
           </Route>
           <Route element={<MainPage />} >
             <Route path="/main" element={<UsersView/>}/>
+            <Route path="/posts" element={<PostsView/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

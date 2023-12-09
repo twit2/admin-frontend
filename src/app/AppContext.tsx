@@ -20,6 +20,6 @@ interface IAppCtx {
 
 export const AppContext = {
     ui: {
-        createDlg: (args) => alert("TODO not implemented")
+        createDlg: (args) => alert(args.content) // TODO implement
     }
 } as IAppCtx;

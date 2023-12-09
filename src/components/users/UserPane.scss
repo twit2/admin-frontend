@@ -1,0 +1,48 @@
+@import "../../style/mixins/ProfilePicture.scss";
+@import "../../style/colors.scss";
+
+.user-pane {
+    padding: 1.5em;
+    box-sizing: border-box;
+    background-color: $colorT4;
+
+    >.user {
+        text-align: center;
+
+        >.avatar {
+            height: 96px;
+            width: 96px;
+            margin-bottom: 1em;
+            margin-left: auto;
+            margin-right: auto;
+            @include profile-picture(url(../../assets/icons/svg/user/profile.svg));
+        }
+
+        >.display-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        >.username {
+            margin-top: 0.5em;
+            color: gray;
+        }
+
+        padding-bottom: 1em;
+        border-bottom: 1px solid $colorT5;
+        margin-bottom: 1em;
+    }
+
+    >.hdr {
+        display: block;
+        margin-bottom: 1em;
+    }
+
+    .props-box {
+        .value {
+            color: gray;
+        } 
+
+        margin-bottom: 1em;
+    }
+}

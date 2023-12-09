@@ -1,15 +1,15 @@
 import "./Table.scss";
 
-interface TableHeader {
+export interface TableHeader {
     name: string;
-    width?: number;
+    width?: number|string;
 }
 
-interface TableData {
+export interface TableData {
     type: "string"|"link";
 }
 
-interface TableLink extends TableData {
+export interface TableLink extends TableData {
     type: "link";
     source: string;
     label: string;
@@ -22,13 +22,13 @@ export interface TableProps {
 
 export const Table = (props: TableProps)=>{
     return <div className="ui-table">
-        <div className="hdr">
-            {props.headers.map((x, i) => <div key={i} style={{width: x.width ?? '100%'}}>
+        <div className="row hdr" style={{ gridTemplateColumns: `repeat(${props.headers.length}, 1fr)` }}>
+            {props.headers.map((x, i) => <div className="col" key={i} style={{width: x.width ?? '100%'}}>
                 {x.name}
             </div>)}
         </div>
-        { ((props.data) ?? []).map((x, i) => <div className="row" key={i}>
-            
+        { ((props.data) ?? []).map((x, i, a) => <div className="row" key={i} style={{ gridTemplateColumns: `repeat(${props.headers.length}, 1fr)` }}>
+            { (a[i].map((cx, ci) => <div className="col" key={ci} style={{width: props.headers[ci].width ?? '100%'}}>{cx}</div>)) }
         </div>) }
     </div>
 }

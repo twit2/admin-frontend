@@ -30,7 +30,10 @@
         }
 
         &.selected {
-            background-color: $colorPrimary;
+            background-color: $colorSecondary;
+
+            >.name { color: $colorPrimary; }
+            >.icon { filter: invert(1); }
         }
     }
 }

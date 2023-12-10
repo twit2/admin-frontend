@@ -47,7 +47,10 @@
             }
 
             &.selected {
-                background-color: $colorPrimary;
+                background-color: $colorSecondary;
+
+                >.label { color: $colorPrimary; }
+                >.icon { filter: invert(1); }
             }
         }
     }

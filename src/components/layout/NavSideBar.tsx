@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./NavSideBar.scss";
 
 export interface SidebarItem {
@@ -12,6 +13,8 @@ interface SidebarProps {
 }
 
 export const NavSideBar = (props: SidebarProps)=>{
+    const [lastItem, setLastItem] = useState(props.selectedId);
+
     const items : SidebarItem[] = [
         {
             id: "users",
@@ -31,8 +34,9 @@ export const NavSideBar = (props: SidebarProps)=>{
             <div className="subtext">ADMINISTRATION</div>
         </div>
         <div className="items">
-            { items.map(x => <div className={"item" + ((x.id === props.selectedId) ? ' selected' : '')} key={x.id} onClick={()=>{
+            { items.map(x => <div className={"item" + ((x.id === lastItem) ? ' selected' : '')} key={x.id} onClick={()=>{
                 props.onSelected(x.id);
+                setLastItem(x.id);
             }}>
                 <div className={"icon " + x.icon}></div>
                 <div className="label">{x.label}</div>

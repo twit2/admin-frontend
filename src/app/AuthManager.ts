@@ -23,6 +23,24 @@ async function login(username: string, password: string) {
     localStorage.setItem('auth-token', loginResp.data as string);
 }
 
+/**
+ * Gets the user's role.
+ * 0 = User, 1 = Admin.
+ */
+async function getRole() {
+    const roleResp = assertResponse(await sendAPIRequest<{ role: number }>(`${AUTH_ENDPOINT}/role`, "GET"));
+    return roleResp.data;
+}
+
+/**
+ * Gets whether the user is admin.
+ */
+async function isAdmin() {
+    return (await getRole())?.role === 1;
+}
+
 export const AuthManager = {
-    login
+    login,
+    getRole,
+    isAdmin
 }

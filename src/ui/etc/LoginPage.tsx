@@ -29,6 +29,15 @@ export const LoginPage = ()=>{
         // Send login request
         try {
             await AuthManager.login(username, password);
+
+            // Check if user is admin
+            // No, this check isn't frontend exclusive, the services also verify this in teh backend via middleware :)
+            if(!await AuthManager.isAdmin()) {
+                setError("User is not a platform administrator.");
+                setBusy(false);
+                return;
+            }
+
             nav(`/main`);
         } catch(e) {
             setError(`Could not login: ${(e as Error).message}`);

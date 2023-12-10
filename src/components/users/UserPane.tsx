@@ -18,6 +18,7 @@ export const UserPane = (props: { user: PartialUser }) => {
         <PropertiesBox data={[
             { key: "Id", value: props.user.id },
             { key: "Join Date", value: props.user.dateJoined },
+            { key: "Verified", value: props.user.verified ? "Yes" : "No" },
         ]}/>
 
         <div className="hdr"><b>Actions</b></div>

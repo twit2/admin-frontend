@@ -62,10 +62,24 @@ function getAvatarURL(user: PartialUser): string|undefined {
         return `${APIConfiguration.apiCdnUrl}${user.avatarURL}`;
 }
 
+/**
+ * [admin] Sets the verification status of a user.
+ * @param id The ID of the user.
+ * @param verified Sets whether a user should be verified.
+ */
+async function setVerified(id: string, verified: boolean) {
+    const verifyResp = assertResponse(await sendAPIRequest<PartialUser>(`${USER_ENDPOINT}/${id}/verify`, 'POST', {
+        verified
+    }));
+
+    return ObjectStores.user.update(verifyResp.data as PartialUser);
+}
+
 export const UserManager = {
     getLatestProfiles,
     getCurrentUser,
     getUserByName,
     getUserById,
-    getAvatarURL
+    getAvatarURL,
+    setVerified
 }

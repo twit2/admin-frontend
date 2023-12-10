@@ -5,6 +5,7 @@
     padding: 1.5em;
     box-sizing: border-box;
     background-color: $colorT4;
+    min-width: 320px;
 
     >.user {
         text-align: center;
@@ -44,5 +45,9 @@
         } 
 
         margin-bottom: 1em;
+    }
+
+    .loading-container {
+        height: auto;
     }
 }
